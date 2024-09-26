@@ -1,0 +1,25 @@
+@{
+ViewData["Title"] = "All BOOks";
+}
+@using SSTTEK.Entity
+@model Books
+<div class="text-center">
+    <h1 class="display-4"> Detail Of Book @Model.Title</h1>
+    <hr/>
+    <p><strong>AUTHOR : </strong>@Model.Author</p>
+    <hr/>
+    <p><strong>GENRE : </strong>@Model.Genre</p>
+    <hr/>
+    <p><strong>LANGUAGE : </strong>@Model.Language</p>
+    <hr/>
+    <p><strong>PUBLISHER : </strong>@Model.Publisher</p>
+    <hr/>
+    <p><strong>SUMMARY : </strong>@Model.Summary</p>
+    <hr/>
+    <p><strong>PAGECOUNT : </strong>@Model.PageCount</p>
+    <hr/>
+    <p><strong>PUBLICATIONYEAR : </strong>@Model.PublicationYear</p>
+    <hr/>
+    <p><strong>ISBN : </strong>@Model.ISBN</p>
+    <hr/>
+</div>

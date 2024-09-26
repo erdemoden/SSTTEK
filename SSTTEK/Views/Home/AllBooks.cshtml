@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "All BOOks";
+}
+@using SSTTEK.Entity
+@model List<Books>
+<div class="text-center">
+    <h1 class="display-4"> ALL BOOKS </h1>
+    <div class="row">
+
+        <div class="col-md-10 offset-md-1">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>PageCount</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.Author
+                    </td>
+                    <td>@item.Genre</td>
+                    <td>@item.PageCount</td>
+                    <td>
+                        <a asp-action="Detail" asp-controller="Book" asp-route-id="@item.Id">Detail</a> |
+                    </td>
+                </tr>
+                }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
