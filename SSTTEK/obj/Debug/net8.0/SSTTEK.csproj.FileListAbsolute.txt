@@ -29,3 +29,10 @@
 /Users/erdemoden/Desktop/SSTTEK/SSTTEK/obj/Debug/net8.0/SSTTEK.genruntimeconfig.cache
 /Users/erdemoden/Desktop/SSTTEK/SSTTEK/obj/Debug/net8.0/ref/SSTTEK.dll
 /Users/erdemoden/Desktop/SSTTEK/SSTTEK/obj/Debug/net8.0/SSTTEK.sourcelink.json
+/Users/erdemoden/Desktop/SSTTEK/SSTTEK/bin/Debug/net8.0/AutoMapper.dll
+/Users/erdemoden/Desktop/SSTTEK/SSTTEK/obj/Debug/net8.0/SSTTEK.csproj.AssemblyReference.cache
+/Users/erdemoden/Desktop/SSTTEK/SSTTEK/obj/Debug/net8.0/SSTTEK.csproj.Up2Date
+/Users/erdemoden/Desktop/SSTTEK/SSTTEK/bin/Debug/net8.0/FluentValidation.dll
+/Users/erdemoden/Desktop/SSTTEK/SSTTEK/bin/Debug/net8.0/FluentValidation.AspNetCore.dll
+/Users/erdemoden/Desktop/SSTTEK/SSTTEK/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/erdemoden/Desktop/SSTTEK/SSTTEK/obj/Debug/net8.0/SSTTEK.MvcApplicationPartsAssemblyInfo.cs

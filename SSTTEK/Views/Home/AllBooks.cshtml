@@ -8,6 +8,7 @@
     <div class="row">
 
         <div class="col-md-10 offset-md-1">
+            <a class="btn btn-primary" asp-controller="Book" asp-action="Create">Create Product</a>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -21,22 +22,25 @@
                 <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @item.Id
-                    </td>
-                    <td>
-                        @item.Title
-                    </td>
-                    <td>
-                        @item.Author
-                    </td>
-                    <td>@item.Genre</td>
-                    <td>@item.PageCount</td>
-                    <td>
-                        <a asp-action="Detail" asp-controller="Book" asp-route-id="@item.Id">Detail</a> |
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.Author
+                        </td>
+                        <td>@item.Genre</td>
+                        <td>@item.PageCount</td>
+                        <td>
+                            <a asp-action="Detail" asp-controller="Book" asp-route-id="@item.Id">Detail</a> |
+                        </td>
+                        <td>
+                            <a asp-action="Update" asp-controller="Book" asp-route-id="@item.Id">Update</a> |
+                        </td>
+                    </tr>
                 }
                 </tbody>
 

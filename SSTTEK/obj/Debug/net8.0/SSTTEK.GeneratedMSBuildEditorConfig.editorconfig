@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/erdemoden/Desktop/SSTTEK/SSTTEK
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/erdemoden/Desktop/SSTTEK/SSTTEK/Views/Book/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9vay9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/erdemoden/Desktop/SSTTEK/SSTTEK/Views/Book/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9vay9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/erdemoden/Desktop/SSTTEK/SSTTEK/Views/Home/AllBooks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbGxCb29rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
