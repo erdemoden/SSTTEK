@@ -1,11 +1,25 @@
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Identity;
+using SSTTEK.Profiles;
+using SSTTEK.Repositories;
 using SSTTEK.Services;
+using SSTTEK.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSingleton<IBookService, BooksService>();
+builder.Services.AddScoped<IBookService, BooksService>();
+builder.Services.AddSingleton<IBooksRepository, BooksRepository>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddControllersWithViews()
+    .AddFluentValidation(fv =>
+    {
+        fv.RegisterValidatorsFromAssemblyContaining<SaveUpdateBookDTOValidator>();
+        fv.DisableDataAnnotationsValidation = true;
+    });
 
 var app = builder.Build();
 

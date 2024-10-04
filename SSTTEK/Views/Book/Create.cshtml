@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Create";
+}
+@using SSTTEK.DTO
+@model SaveUpdateBookDTO
+
+
+<div class="row">
+    
+    <div class="col-md-6 offset-md-3">
+        <h2>Create Book</h2>
+        <form asp-controller="Book" asp-action="Create" method="post">
+
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div> 
+    
+            <div class="mb-3">
+                <label asp-for="Author" class="form-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+    
+            <div class="mb-3">
+                <label asp-for="ISBN" class="form-label"></label>
+                <input asp-for="ISBN" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="PublicationYear" class="form-label"></label>
+                <input asp-for="PublicationYear" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Genre" class="form-label"></label>
+                <input asp-for="Genre" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Publisher" class="form-label"></label>
+                <input asp-for="Publisher" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="PageCount" class="form-label"></label>
+                <input asp-for="PageCount" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Language" class="form-label"></label>
+                <input asp-for="Language" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Summary" class="form-label"></label>
+                <input asp-for="Summary" class="form-control" />
+            </div>
+    
+            <button class="btn btn-primary" type="submit">Create Book</button>
+        </form>
+    </div>
+
+</div>

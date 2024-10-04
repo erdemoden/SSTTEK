@@ -1,32 +1,34 @@
+using AutoMapper;
+using SSTTEK.DTO;
 using SSTTEK.Entity;
+using SSTTEK.Repositories;
 
 namespace SSTTEK.Services
 {
 
-    public class BooksService : IBookService
+    public class BooksService(IBooksRepository booksRepository,IMapper mapper) : IBookService
     {
-        public List<Books> Books { get; set; } = new List<Books>();
-
-        public BooksService()
-        {
-            Books = new List<Books>()
-            {
-                new Books(1, "denemekitap1", "erdem", "34243fd", 1998, "Dram", "erdem", 12345, "Turkish", "kısa özet"),
-                new Books(2, "denemekitap2", "erdem2", "34243fd", 1998, "Dram", "erdem", 12345, "Turkish",
-                    "kısa özet2"),
-                new Books(3, "denemekitap3", "erdem3", "34243fd", 1998, "Dram", "erdem", 12345, "Turkish",
-                    "kısa özet3"),
-            };
-        }
-
+        
         public List<Books> getAllBooks()
         {
-            return Books;
+           return  booksRepository.getAllBooks();
         }
 
         public Books getBookById(int id)
         {
-            return Books.FirstOrDefault(b => b.Id == id);
+            return booksRepository.getBookById(id);
+        }
+
+        public Books save(SaveUpdateBookDTO book)
+        {
+            Books books = mapper.Map<SaveUpdateBookDTO, Books>(book);
+            books.Id = booksRepository.getBiggestId()+1;
+            return booksRepository.save(books);
+        }
+
+        public Books update(Books books)
+        {
+            return booksRepository.save(books);
         }
     }
 }
