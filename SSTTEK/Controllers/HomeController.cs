@@ -26,9 +26,9 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult AllBooks()
+    public async Task<IActionResult> AllBooks()
     {
-        return View(bookService.getAllBooks());
+        return View(bookService.getAllBooks().Result);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

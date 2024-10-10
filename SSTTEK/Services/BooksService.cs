@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using SSTTEK.DTO;
 using SSTTEK.Entity;
 using SSTTEK.Repositories;
@@ -6,29 +7,40 @@ using SSTTEK.Repositories;
 namespace SSTTEK.Services
 {
 
-    public class BooksService(IBooksRepository booksRepository,IMapper mapper) : IBookService
+    public class BooksService(IBooksRepository booksRepository,IMapper mapper,IUnitOfWork unitOfWork) : IBookService
     {
-        
-        public List<Books> getAllBooks()
+        public async Task<List<Books>> getAllBooks()
         {
-           return  booksRepository.getAllBooks();
+             return await booksRepository.GetAll().ToListAsync();
         }
 
-        public Books getBookById(int id)
+        public async Task<Books> getBookById(int id)
         {
-            return booksRepository.getBookById(id);
+            return await booksRepository.GetById(id);
         }
 
-        public Books save(SaveUpdateBookDTO book)
+        public async Task<Books> save(SaveUpdateBookDTO book)
         {
-            Books books = mapper.Map<SaveUpdateBookDTO, Books>(book);
-            books.Id = booksRepository.getBiggestId()+1;
-            return booksRepository.save(books);
+            Books books = await booksRepository.Add(mapper.Map<SaveUpdateBookDTO, Books>(book));
+            await unitOfWork.Commit();
+            return books;
         }
 
-        public Books update(Books books)
+        public async Task<Books> update(Books book)
+        {   
+            Books books =  await booksRepository.Update(book);
+            await unitOfWork.Commit();
+            return books;
+        }
+
+        public async Task<List<Books>> searchBooks(string search)
         {
-            return booksRepository.save(books);
+            return await booksRepository.Where(b => 
+                b.Title.Contains(search) ||
+                b.Author.Contains(search) ||
+                b.Publisher.Contains(search) ||
+                b.Genre.Contains(search)
+            ).ToListAsync();
         }
     }
 }
