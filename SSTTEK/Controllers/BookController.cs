@@ -5,43 +5,45 @@ using SSTTEK.Models;
 using SSTTEK.Services;
 
 namespace SSTTEK.Controllers;
+
 public class BookController(IBookService bookService) : Controller
 {
-    [HttpGet]
+    [HttpGet("/book/create")]
     public IActionResult Create()
     {
         return View();
     }
-    
-    public IActionResult AllBooks()
+
+    public async Task<IActionResult> AllBooks()
     {
-        var books = bookService.getAllBooks();
+        var books = await bookService.getAllBooks();
         return View("/Views/Home/AllBooks.cshtml", books);
     }
-    
+
     [HttpGet]
-    public IActionResult Update(int id)
+    public async Task<IActionResult> Update(int id)
     {
-        return View(bookService.getBookById(id));
+        return View(await bookService.getBookById(id));
     }
 
     [HttpGet("getDetailOfBook")]
-    public IActionResult Detail(int id)
+    public async Task<IActionResult> Detail(int id)
     {
-        return View(bookService.getBookById(id));
+        return View(await bookService.getBookById(id));
     }
 
     [HttpPost]
-    public IActionResult Create(SaveUpdateBookDTO saveUpdateBookDto)
+    public async Task<IActionResult> Create(SaveUpdateBookDTO saveUpdateBookDto)
     {
         if (!ModelState.IsValid)
         {
             return View(saveUpdateBookDto);
         }
-        
-        bookService.save(saveUpdateBookDto);
+
+        await bookService.save(saveUpdateBookDto);
         return RedirectToAction("AllBooks");
     }
+
     [HttpPost]
     public IActionResult Update(Books books)
     {
@@ -49,8 +51,14 @@ public class BookController(IBookService bookService) : Controller
         {
             return View(books);
         }
-        
+
         bookService.update(books);
         return RedirectToAction("AllBooks");
+    }
+    [HttpPost]
+    public async Task<IActionResult> Search(string searchTerm)
+    {
+        var books = await bookService.searchBooks(searchTerm);
+        return View("/Views/Home/AllBooks.cshtml", books);
     }
 }

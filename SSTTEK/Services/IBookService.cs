@@ -5,11 +5,12 @@ namespace SSTTEK.Services;
 
 public interface IBookService
 {
-    List<Books> getAllBooks();
+    Task<List<Books>> getAllBooks();
     
-    Books getBookById(int id);
+    Task<Books> getBookById(int id);
 
-    Books save(SaveUpdateBookDTO book);
+    Task<Books> save(SaveUpdateBookDTO book);
     
-    Books update(Books book);
+    Task<Books> update(Books book);
+    Task<List<Books>> searchBooks(string search);
 }
