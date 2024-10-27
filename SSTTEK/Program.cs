@@ -2,6 +2,9 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using SSTTEK.Extensions;
+using SSTTEK.Filters;
+using SSTTEK.Middleware;
 using SSTTEK.Profiles;
 using SSTTEK.Repositories;
 using SSTTEK.Services;
@@ -25,9 +28,12 @@ builder.Services.AddControllersWithViews()
         fv.RegisterValidatorsFromAssemblyContaining<SaveUpdateBookDTOValidator>();
         fv.DisableDataAnnotationsValidation = true;
     });
-
+builder.logFilterExt<LogFilter>();
 var app = builder.Build();
-
+app.UseMiddleware<RequestLoggingMiddleware>();
+//app.UseMiddleware<IPMiddleware>();
+app.UseMiddleware<AddHeaderMiddleware>();
+app.UseMiddleware<HeaderMiddleware>();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

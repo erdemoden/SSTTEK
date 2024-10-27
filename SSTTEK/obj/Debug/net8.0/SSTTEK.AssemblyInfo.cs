@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SSTTEK")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47cbc07ce233773133a412dad1aab2b96a56de3c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5f130604f109182ea1926f247c59e278dbeb25c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SSTTEK")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SSTTEK")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
